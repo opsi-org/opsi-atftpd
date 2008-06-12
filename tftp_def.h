@@ -33,6 +33,9 @@
 #define S_TIMEOUT     5         /* Server timout. */
 #define NB_OF_RETRY   5
 
+#define FIFO_MAX_SIZE 16384     /* Maximum bytes to read from a named pipe */
+
+
 /* definition to use tftp_options structure */
 #define OPT_FILENAME  0
 #define OPT_MODE      1

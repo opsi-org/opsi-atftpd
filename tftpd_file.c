@@ -429,6 +429,9 @@ int tftpd_send_file(struct thread_data *data)
      int prev_file_pos = 0;
      int temp = 0;
 
+     char *fifo_buf = NULL;
+     int fifo_len = -1;
+
      /* look for mode option */
      if (strcasecmp(data->tftp_options[OPT_MODE].value, "netascii") == 0)
      {
@@ -498,6 +501,33 @@ int tftpd_send_file(struct thread_data *data)
      /* To return the size of the file with tsize argument */
      fstat(fileno(fp), &file_stat);
 
+     if (S_ISFIFO (file_stat.st_mode)) 
+     {
+          fifo_buf = (char *) malloc(sizeof(char)*FIFO_MAX_SIZE);
+
+          if (fifo_buf == NULL)
+          {
+               logger(LOG_ERR, "memory allocation failure");
+               return ERR;
+          }
+
+          /* Reading from named pipe into buffer */
+          fifo_len = fread( fifo_buf, 1, sizeof(char)*FIFO_MAX_SIZE, fp );
+          if (fifo_len < 0)
+          {
+               logger(LOG_ERR, "error reading from named pipe %s", filename);
+               fclose(fp);
+               free(fifo_buf);
+               return ERR;
+          }
+          else if (fifo_len >= FIFO_MAX_SIZE)
+          {
+               logger(LOG_WARNING, "buffer limit reached while reading from pipe");
+          }
+          file_stat.st_size = fifo_len;
+          logger(LOG_DEBUG, "Read %d bytes from pipe", fifo_len);
+     }
+     
      /* tsize option */
      if ((opt_get_tsize(data->tftp_options) > -1) && !convert)
      {
@@ -714,14 +744,39 @@ int tftpd_send_file(struct thread_data *data)
                break;
           case S_SEND_DATA:
                timeout_state = state;
+               if (fifo_len > -1 && fifo_buf != NULL)
+               {
+                    /* fifo_buf contains data from pipe */
+                    if (fifo_len >= data->data_buffer_size - 4)
+                    {
+                         data_size = data->data_buffer_size - 4;
+                         fifo_len -= data_size;
+                    }
+                    else
+                    {
+                         data_size = fifo_len;
+                         /* record the last block number */
+                         last_block = block_number;
+                    }
 
-               data_size = tftp_file_read(fp, tftphdr->th_data, data->data_buffer_size - 4, block_number,
-                                          convert, &prev_block_number, &prev_file_pos, &temp);
+                    strncpy(tftphdr->th_data, fifo_buf + block_number * (data->data_buffer_size - 4), data_size);
+
+                    if (data_size == fifo_len && last_block == block_number)
+                    {
+                         free(fifo_buf);
+                         fifo_buf = NULL;
+                    }
+	       }
+               else
+               {
+                    data_size = tftp_file_read(fp, tftphdr->th_data, data->data_buffer_size - 4, block_number,
+                                               convert, &prev_block_number, &prev_file_pos, &temp);
+                    /* record the last block number */
+                    if (feof(fp))
+                         last_block = block_number;
+               }
+
                data_size += 4;  /* need to consider tftp header */
-
-               /* record the last block number */
-               if (feof(fp))
-                    last_block = block_number;
 
                if (multicast)
                {

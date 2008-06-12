@@ -240,6 +240,35 @@ specification. See pxespec.txt for the source of the
 specification. Note that this is not the same as RFC2090. PXE
 compliant boot implements mtftp, not RFC2090.
 
+.SH FIFO
+The atftpd server provides the ability to communicate with other
+processes using named pipes / FIFOs. In addition to files you can
+place FIFOs into the specified root directory which atftpd will open 
+for reading on a client request and serve the content to the client.
+This feature can be used on the tftp server side to tell the clients 
+(separately, if you want) to boot from network or to boot from their 
+fallback boot method.
+
+\fBExample\fR
+
+ #!/usr/bin/perl
+ use POSIX;
+ my $pipe = "/tftpboot/linux/pxelinux.cfg/01-00-01-02-03-04-05";
+ # create fifo
+ POSIX::mkfifo($pipe, 0644) or
+    die("cannot create Pipe $pipe: $!\\n");
+ # open pipe
+ sysopen(FIFO, $pipe, O_WRONLY, 0644);
+ # write boot configuration
+ print FIFO "default linux\\r\\n";
+ print FIFO "label linux\\r\\n";
+ print FIFO " kernel vmlinuz\\r\\n";
+ print FIFO " append ramdisk_size=64000 init=/etc/init initrd=initrd\\r\\n";
+ close(FIFO);
+ # delete pipe
+ unlink($pipe);
+
+
 .SH SEE ALSO
 .BR inetd (8), hosts_access (5), libpcre (7),
 RFC1350, RFC2090, RFC2347, RFC2348, RFC2349 and pxespec.pdf.
