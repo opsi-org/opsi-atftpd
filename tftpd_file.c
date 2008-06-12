@@ -191,6 +191,12 @@ int tftpd_receive_file(struct thread_data *data)
                fclose(fp);
                return ERR;
           }
+          
+          /* limit blksize to maximum blksize permitted */
+          if (result > data->max_blksize)
+          {
+               result = data->max_blksize;
+          }
 
           data->data_buffer_size = result + 4;
           data->data_buffer = realloc(data->data_buffer, data->data_buffer_size);
@@ -563,6 +569,12 @@ int tftpd_send_file(struct thread_data *data)
                            tftp_errmsg[EOPTNEG]);
                fclose(fp);
                return ERR;
+          }
+
+          /* limit blksize to maximum blksize permitted */
+          if (result > data->max_blksize)
+          {
+               result = data->max_blksize;
           }
 
           data->data_buffer_size = result + 4;

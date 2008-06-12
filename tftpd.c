@@ -57,6 +57,8 @@
 int tftpd_max_thread = 100;     /* number of concurent thread allowed */
 int tftpd_timeout = 300;        /* number of second of inactivity
                                    before exiting */
+int max_blksize = 0;            /* maximum blksize for transfers */
+
 char directory[MAXLEN] = "/tftpboot/";
 int retry_timeout = S_TIMEOUT;
 
@@ -444,6 +446,9 @@ int main(int argc, char **argv)
                memcpy(new->tftp_options, tftp_default_options,
                       sizeof(tftp_default_options));
 
+               /* maximum blocksize */
+               new->max_blksize = max_blksize;
+
                /* default timeout */
                new->timeout = retry_timeout;
 
@@ -812,6 +817,7 @@ int tftpd_cmd_line_options(int argc, char **argv)
           { "no-timeout", 0, NULL, 'T' },
           { "no-tsize", 0, NULL, 'S' },
           { "no-blksize", 0, NULL, 'B' },
+          { "max-blksize", 1, NULL, 'X' },
           { "no-multicast", 0, NULL, 'M' },
           { "logfile", 1, NULL, 'L' },
           { "pidfile", 1, NULL, 'I'},
@@ -855,6 +861,9 @@ int tftpd_cmd_line_options(int argc, char **argv)
                break;
           case 'm':
                tftpd_max_thread = atoi(optarg);
+               break;
+	  case 'X':
+               max_blksize = atoi(optarg);
                break;
 #ifdef RATE_CONTROL
           case OPT_RATE:
@@ -1037,6 +1046,7 @@ void tftpd_log_options(void)
             tftp_default_options[OPT_TSIZE].enabled ? "enabled":"disabled");
      logger(LOG_INFO, "  option blksize:   %s",
             tftp_default_options[OPT_BLKSIZE].enabled ? "enabled":"disabled");
+     logger(LOG_INFO, "  maximum blocksize: %d", max_blksize);
      logger(LOG_INFO, "  option multicast: %s",
             tftp_default_options[OPT_MULTICAST].enabled ? "enabled":"disabled");
      logger(LOG_INFO, "     address range: %s", mcast_addr);
@@ -1117,6 +1127,7 @@ void tftpd_usage(void)
             "  --no-timeout               : disable 'timeout' from RFC2349\n"
             "  --no-tisize                : disable 'tsize' from RFC2349\n"
             "  --no-blksize               : disable 'blksize' from RFC2348\n"
+            "  --max-blksize <value>      : maximum blocksize permitted (>=512)\n"
             "  --no-multicast             : disable 'multicast' from RFC2090\n"
             "  --logfile <file>           : logfile to log logs to ;-)\n"
             "  --pidfile <file>           : write PID to this file\n"

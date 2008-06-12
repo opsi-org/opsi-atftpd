@@ -74,6 +74,16 @@ disable 'blksize' from RFC2348. This will prevent the server from
 acknowledging the 'blksize' request by the client.
 
 .TP
+.B \-\-max\-blksize <value>
+Specifies the maximum permitted block size. The permitted range for this
+parameter is from 512 to 65464. Some embedded clients request large block
+sizes and yet do not handle fragmented packets correctly; for these clients,
+it is recommended to set this value to the smallest MTU on your network minus
+32 bytes (20 bytes  for  IP,  8  for  UDP, and 4 for TFTP; less if you use IP
+options on your network.)  For example, on a  standard  Ethernet (MTU 1500)
+a value of 1468 is reasonable.
+
+.TP
 .B \-\-no\-multicast
 disable 'multicast' from RFC2090. This will prevent the server from
 acknowledging the 'multicast' request by the client.

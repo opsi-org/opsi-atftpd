@@ -54,7 +54,9 @@ struct thread_data {
       * to client_ready bellow is protected by a mutex.
       */
      struct tftp_opt *tftp_options;
- 
+     
+     int max_blksize;
+     
      /* 
       * Must lock to insert in the list or search, but not to read or write 
       * in the client_info structure, since only the propriotary thread do it.
