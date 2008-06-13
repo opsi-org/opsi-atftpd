@@ -193,7 +193,7 @@ int tftpd_receive_file(struct thread_data *data)
           }
           
           /* limit blksize to maximum blksize permitted */
-          if (result > data->max_blksize)
+          if ( (data->max_blksize >= 512) && (data->max_blksize <= 65464) && (result > data->max_blksize) )
           {
                result = data->max_blksize;
           }
@@ -572,7 +572,7 @@ int tftpd_send_file(struct thread_data *data)
           }
 
           /* limit blksize to maximum blksize permitted */
-          if (result > data->max_blksize)
+          if ( (data->max_blksize >= 512) && (data->max_blksize <= 65464) && (result > data->max_blksize) )
           {
                result = data->max_blksize;
           }
