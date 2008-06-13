@@ -1,7 +1,7 @@
 Source: atftp
 Section: net
 Priority: extra
-Maintainer: Ludovic Drolez <ldrolez@debian.org>
+Maintainer: Jan Schneider <j.schneider@uib.de>
 Build-Depends: libreadline5-dev, debhelper (>= 4.1.16), po-debconf, libwrap-dev, libpcre3-dev
 Standards-Version: 3.7.2
 
@@ -15,7 +15,7 @@ Description: advanced TFTP client
  booting from LAN. Atftp also supports non-interactive invocation for
  easy use in scripts.
 
-Package: atftpd
+Package: opsi-atftpd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, netbase (>= 4.08)
 Conflicts: tftpd
@@ -27,3 +27,6 @@ Description: advanced TFTP server
  Atftpd also supports multicast protocol known as mtftp, defined in the PXE
  specification. The server supports being started from inetd(8) as well as
  in daemon mode using init scripts.
+ This version of atftpd is patched to support reading from named pipes and
+ blksize limits. 
+ 

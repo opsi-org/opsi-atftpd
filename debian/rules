@@ -61,7 +61,7 @@ install: build
 
 	dh_movefiles
 	dh_installdocs -patftp
-	dh_installdocs -patftpd
+	dh_installdocs -popsi-atftpd
 
 # Build architecture-independent files here.
 # Pass -i to all debhelper commands in this target to reduce clutter.
