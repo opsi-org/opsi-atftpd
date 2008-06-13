@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-1.3) stable; urgency=low
+
+  * Applied the following patches: pcre, fifo, max-blksize
+
+ -- Jan Schneider <j.schneider@uib.de>  Fri, 13 Jun 2008 11:38:09 +0200
+
 atftp (0.7.dfsg-1.2) unstable; urgency=low
 
   * Non-maintainer upload to fix a pending l10n issues that affects the

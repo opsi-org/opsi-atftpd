@@ -122,8 +122,8 @@ EOF
 update-inetd --remove "tftp.*"
 
 # Make sure atftpd is stoped. Needed for dpkg-reconfigure.
-if [ -e "/etc/init.d/atftpd" ]; then
-        /etc/init.d/atftpd stop
+if [ -e "/etc/init.d/opsi-atftpd" ]; then
+        /etc/init.d/opsi-atftpd stop
 fi
 
 if [ "$USE_INETD" = "false" ]; then

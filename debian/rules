@@ -60,7 +60,7 @@ install: build
 			mandir=`pwd`/debian/tmp/usr/share/man
 
 	dh_movefiles
-	dh_installdocs -patftp
+	dh_installdocs -popsi-atftp
 	dh_installdocs -popsi-atftpd
 
 # Build architecture-independent files here.
