@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: atftp 0.7.dfsg-1\n"
-"Report-Msgid-Bugs-To: ldrolez@debian.org\n"
-"POT-Creation-Date: 2006-10-02 00:46+0200\n"
+"Report-Msgid-Bugs-To: Source: opsi-atftp@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-03 13:06+0200\n"
 "PO-Revision-Date: 2006-11-23 01:10-0500\n"
 "Last-Translator: Matthias Julius <mdeb@julius-net.net>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -28,13 +28,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:1001
+#: ../opsi-atftpd.templates:1001
 msgid "Should the server be started by inetd?"
 msgstr "Soll der Server von inetd gestartet werden?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:1001
+#: ../opsi-atftpd.templates:1001
 msgid ""
 "atftpd can be started by the inetd superserver or as a daemon and handle "
 "incoming connections by itself. The latter is only recommend for very high "
@@ -46,19 +46,19 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:2001
+#: ../opsi-atftpd.templates:2001
 msgid "Server timeout:"
 msgstr "Server-Limit für Zeitüberschreitung (engl. »server timeout«)."
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:2001
+#: ../opsi-atftpd.templates:2001
 msgid "How many seconds the main thread waits before exiting."
 msgstr "Die Zeit in Sekunden, die der Haupt-Thread vor einem Abbruch abwartet."
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:3001
+#: ../opsi-atftpd.templates:3001
 msgid "Retry timeout:"
 msgstr ""
 "Server-Limit für Zeitüberschreitung bei neuerlichem Versuch (engl. »Retry "
@@ -66,7 +66,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:3001
+#: ../opsi-atftpd.templates:3001
 msgid "How many seconds to wait for a reply before retransmitting a packet."
 msgstr ""
 "Die Zeit in Sekunden, die der Server verstreichen lässt, bevor das zuletzt "
@@ -74,25 +74,25 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:4001
+#: ../opsi-atftpd.templates:4001
 msgid "Maximum number of threads:"
 msgstr "Maximale Thread-Anzahl:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:4001
+#: ../opsi-atftpd.templates:4001
 msgid "Maximum number of concurrent threads that can be running."
 msgstr "Die maximale Anzahl gleichzeitig laufender Threads."
 
 #. Type: select
 #. Description
-#: ../atftpd.templates:5001
+#: ../opsi-atftpd.templates:5001
 msgid "Verbosity level:"
 msgstr "Niveau der Redseligkeit:"
 
 #. Type: select
 #. Description
-#: ../atftpd.templates:5001
+#: ../opsi-atftpd.templates:5001
 msgid ""
 "Level of logging. 7 logs everything including debug logs. 1 will log only "
 "the system critical logs. 5 (LOG_NOTICE) is the default value."
@@ -103,49 +103,49 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:6001
+#: ../opsi-atftpd.templates:6001
 msgid "Enable 'timeout' support?"
 msgstr "Aktivieren der Zeitüberschreitungs-Unterstützung (engl. »timeout«)?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:7001
+#: ../opsi-atftpd.templates:7001
 msgid "Enable 'tsize' support?"
 msgstr "Aktivieren der »tsize«-Unterstützung?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:8001
+#: ../opsi-atftpd.templates:8001
 msgid "Enable 'block size' support?"
 msgstr "Aktivieren der »block size«-Unterstützung?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:9001
+#: ../opsi-atftpd.templates:9001
 msgid "Enable multicast support?"
 msgstr "Multicast-Unterstützung aktivieren?"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:10001
+#: ../opsi-atftpd.templates:10001
 msgid "TTL for multicast packets:"
 msgstr "TTL für Multicast-Pakete:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:11001
+#: ../opsi-atftpd.templates:11001
 msgid "Port to listen for tftp request:"
 msgstr "Port, der für tftp-Anfragen überwacht werden soll:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:12001
+#: ../opsi-atftpd.templates:12001
 msgid "Port range for multicast file transfer:"
 msgstr "Portbereich für Multicast-Dateiübertragungen:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:12001
+#: ../opsi-atftpd.templates:12001
 msgid ""
 "Multicast transfer will use any available port in a given set. For example, "
 "\"2000-2003, 3000\" allow atftpd to use port 2000 to 2003 and 3000."
@@ -156,13 +156,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:13001
+#: ../opsi-atftpd.templates:13001
 msgid "Address range for multicast transfer:"
 msgstr "Adressbereich für den Multicast-Transfer:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:13001
+#: ../opsi-atftpd.templates:13001
 msgid ""
 "Multicast transfer will use any available addresses from a given set of "
 "addresses. Syntax is \"a.b.c.d-d,a.b.c.d,...\""
@@ -172,13 +172,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:14001
+#: ../opsi-atftpd.templates:14001
 msgid "Log to file instead of syslog?"
 msgstr "In eine Datei anstatt über syslog protokollieren?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:14001
+#: ../opsi-atftpd.templates:14001
 msgid ""
 "If your server does intensive tftp file serving, it is a good idea to  "
 "accept here. That will avoid cluttering your syslog with tftpd logs."
@@ -189,13 +189,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:15001
+#: ../opsi-atftpd.templates:15001
 msgid "Log file:"
 msgstr "Logdatei:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:15001
+#: ../opsi-atftpd.templates:15001
 msgid ""
 "A file where atftpd will write its logs. This file will be made writable for "
 "the user 'nobody' and group 'nogroup'."
@@ -206,13 +206,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:16001
+#: ../opsi-atftpd.templates:16001
 msgid "Base directory:"
 msgstr "Basisverzeichnis:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:16001
+#: ../opsi-atftpd.templates:16001
 msgid ""
 "The directory tree from where atftpd can serve files. That directory must be "
 "world readable."

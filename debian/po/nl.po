@@ -18,8 +18,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: atftp_0.7.dfsg-1\n"
-"Report-Msgid-Bugs-To: ldrolez@debian.org\n"
-"POT-Creation-Date: 2006-10-02 00:46+0200\n"
+"Report-Msgid-Bugs-To: Source: opsi-atftp@packages.debian.org\n"
+"POT-Creation-Date: 2008-07-03 13:06+0200\n"
 "PO-Revision-Date: 2006-10-05 19:50+0100\n"
 "Last-Translator: Kurt De Bree <kdebree@telenet.be>\n"
 "Language-Team: Debian l10n Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -29,13 +29,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:1001
+#: ../opsi-atftpd.templates:1001
 msgid "Should the server be started by inetd?"
 msgstr "Moet de server door inetd worden gestart?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:1001
+#: ../opsi-atftpd.templates:1001
 msgid ""
 "atftpd can be started by the inetd superserver or as a daemon and handle "
 "incoming connections by itself. The latter is only recommend for very high "
@@ -47,25 +47,25 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:2001
+#: ../opsi-atftpd.templates:2001
 msgid "Server timeout:"
 msgstr "Server wachttijd:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:2001
+#: ../opsi-atftpd.templates:2001
 msgid "How many seconds the main thread waits before exiting."
 msgstr "Hoeveel seconden de hoofddraad moet wachten alvorens af te sluiten."
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:3001
+#: ../opsi-atftpd.templates:3001
 msgid "Retry timeout:"
 msgstr "Wachttijd tussen pogingen:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:3001
+#: ../opsi-atftpd.templates:3001
 msgid "How many seconds to wait for a reply before retransmitting a packet."
 msgstr ""
 "Hoeveel seconden atftpd moet wachten op een antwoord alvorens een pakket "
@@ -73,77 +73,77 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:4001
+#: ../opsi-atftpd.templates:4001
 msgid "Maximum number of threads:"
 msgstr "Maximum aantal draden:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:4001
+#: ../opsi-atftpd.templates:4001
 msgid "Maximum number of concurrent threads that can be running."
 msgstr "Maximum aantal draden die tegelijk kunnen uitvoeren."
 
 #. Type: select
 #. Description
-#: ../atftpd.templates:5001
+#: ../opsi-atftpd.templates:5001
 msgid "Verbosity level:"
 msgstr "Woordenrijkheidsniveau (verbosity):"
 
 #. Type: select
 #. Description
-#: ../atftpd.templates:5001
+#: ../opsi-atftpd.templates:5001
 msgid ""
 "Level of logging. 7 logs everything including debug logs. 1 will log only "
 "the system critical logs. 5 (LOG_NOTICE) is the default value."
 msgstr ""
-"Bewaarniveau. 7 bewaart alles, ook debug-berichten. 1 zal enkel "
-"de systeemkritieke berichten bewaren. 5 (LOG_NOTICE) is de standaardwaarde."
+"Bewaarniveau. 7 bewaart alles, ook debug-berichten. 1 zal enkel de "
+"systeemkritieke berichten bewaren. 5 (LOG_NOTICE) is de standaardwaarde."
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:6001
+#: ../opsi-atftpd.templates:6001
 msgid "Enable 'timeout' support?"
 msgstr "'timeout'-ondersteuning activeren?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:7001
+#: ../opsi-atftpd.templates:7001
 msgid "Enable 'tsize' support?"
 msgstr "'tsize'-ondersteuning activeren?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:8001
+#: ../opsi-atftpd.templates:8001
 msgid "Enable 'block size' support?"
 msgstr "'blokgrootte'-ondersteuning activeren?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:9001
+#: ../opsi-atftpd.templates:9001
 msgid "Enable multicast support?"
 msgstr "'Multicast'-ondersteuning activeren?"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:10001
+#: ../opsi-atftpd.templates:10001
 msgid "TTL for multicast packets:"
 msgstr "TTL (Time To Level) voor multicast-pakketten:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:11001
+#: ../opsi-atftpd.templates:11001
 msgid "Port to listen for tftp request:"
 msgstr "Poort waarnaar moet geluisterd worden voor tftp-aanvragen:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:12001
+#: ../opsi-atftpd.templates:12001
 msgid "Port range for multicast file transfer:"
 msgstr "Poortbereik voor multicast-bestandsuitwisseling:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:12001
+#: ../opsi-atftpd.templates:12001
 msgid ""
 "Multicast transfer will use any available port in a given set. For example, "
 "\"2000-2003, 3000\" allow atftpd to use port 2000 to 2003 and 3000."
@@ -154,13 +154,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:13001
+#: ../opsi-atftpd.templates:13001
 msgid "Address range for multicast transfer:"
 msgstr "Adresbereik voor multicast-uitwisseling:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:13001
+#: ../opsi-atftpd.templates:13001
 msgid ""
 "Multicast transfer will use any available addresses from a given set of "
 "addresses. Syntax is \"a.b.c.d-d,a.b.c.d,...\""
@@ -170,13 +170,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:14001
+#: ../opsi-atftpd.templates:14001
 msgid "Log to file instead of syslog?"
 msgstr "In bestand bewaren in plaats van in syslog?"
 
 #. Type: boolean
 #. Description
-#: ../atftpd.templates:14001
+#: ../opsi-atftpd.templates:14001
 msgid ""
 "If your server does intensive tftp file serving, it is a good idea to  "
 "accept here. That will avoid cluttering your syslog with tftpd logs."
@@ -187,13 +187,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:15001
+#: ../opsi-atftpd.templates:15001
 msgid "Log file:"
 msgstr "Logbestand:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:15001
+#: ../opsi-atftpd.templates:15001
 msgid ""
 "A file where atftpd will write its logs. This file will be made writable for "
 "the user 'nobody' and group 'nogroup'."
@@ -203,13 +203,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:16001
+#: ../opsi-atftpd.templates:16001
 msgid "Base directory:"
 msgstr "Basismap:"
 
 #. Type: string
 #. Description
-#: ../atftpd.templates:16001
+#: ../opsi-atftpd.templates:16001
 msgid ""
 "The directory tree from where atftpd can serve files. That directory must be "
 "world readable."

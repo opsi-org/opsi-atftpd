@@ -22,6 +22,7 @@
 #include "stats.h"
 #include "logger.h"
 
+
 /*
  * That structure allows global statistic to be collected. See stats.h.
  */
@@ -157,8 +158,8 @@ void stats_print(void)
 
      logger(LOG_INFO, "  Load measurements:");
      logger(LOG_INFO, "   User: %8.3fs  Sys:%8.3fs",
-            (double)(s_stats.tms.tms_utime) / CLK_TCK,
-            (double)(s_stats.tms.tms_stime) / CLK_TCK);
+            (double)(s_stats.tms.tms_utime) / CLOCKS_PER_SEC,
+            (double)(s_stats.tms.tms_stime) / CLOCKS_PER_SEC);
      logger(LOG_INFO, "   Total:%8.3fs  CPU:%8.3f%%", 
             (double)(tmp.tv_sec + tmp.tv_usec * 1e-6),
             (double)(s_stats.tms.tms_utime + s_stats.tms.tms_stime) /
