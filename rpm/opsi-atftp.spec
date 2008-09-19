@@ -45,10 +45,17 @@ files using the TFTP protocol.
 # ===[ setup ]======================================
 %setup
 
-# ===[ patch ]======================================
-%patch
+# ===[ build ]======================================
+%build
+%configure
+make
 
-%{__cat} <<EOF >tftp.xinetd
+# ===[ install ]====================================
+%install
+[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != '/' ] && rm -rf $RPM_BUILD_ROOT
+%makeinstall
+mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/xinetd.d
+cat <<EOF >$RPM_BUILD_ROOT/%{_sysconfdir}/xinetd.d/tftp
 service tftp
 {
     disable         = no
@@ -64,17 +71,6 @@ service tftp
 }
 EOF
 
-# ===[ build ]======================================
-%build
-%configure
-make
-
-# ===[ install ]====================================
-%install
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != '/' ] && rm -rf $RPM_BUILD_ROOT
-%makeinstall
-install -Dp -m0644 tftp.xinetd %{buildroot}%{_sysconfdir}/xinetd.d/tftp
-
 # ===[ clean ]======================================
 %clean
 [ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != '/' ] && rm -rf $RPM_BUILD_ROOT
@@ -84,12 +80,9 @@ install -Dp -m0644 tftp.xinetd %{buildroot}%{_sysconfdir}/xinetd.d/tftp
 
 # ===[ preun ]======================================
 %preun
-%stop_on_removal opsipxeconfd
 
 # ===[ postun ]=====================================
 %postun
-%restart_on_update opsipxeconfd
-%insserv_cleanup
 
 # ===[ files ]======================================
 %files
