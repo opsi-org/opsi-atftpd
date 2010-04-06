@@ -86,6 +86,7 @@ EOF
 
 # ===[ files ]======================================
 %files
+%defattr(-,root,root)
 %doc %{_mandir}/man8/atftpd.8.gz
 %doc %{_mandir}/man8/in.tftpd.8.gz
 %{_sbindir}/atftpd
@@ -93,6 +94,7 @@ EOF
 %config(noreplace) %{_sysconfdir}/xinetd.d/tftp
 
 %files client
+%defattr(-,root,root)
 %doc %{_mandir}/man1/atftp.1.gz
 %{_bindir}/atftp
 
