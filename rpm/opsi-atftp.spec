@@ -1,7 +1,7 @@
 #
 # spec file for package opsi-atftp
 #
-# Copyright (c) 2008 uib GmbH.
+# Copyright (c) 2010 uib GmbH.
 # This file and all modifications and additions to the pristine
 # package are under the same license as the package itself.
 #
@@ -11,8 +11,8 @@ Requires:       xinetd
 License:        GPL v2 or later
 Group:          Productivity/Networking/Opsi
 AutoReqProv:    on
-Version:        0.7
-Release:        1
+Version:        0.7.dfsg
+Release:        1.4
 Conflicts:      atftp
 Summary:        advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
 %define tarname opsi-atftp
@@ -100,7 +100,3 @@ EOF
 
 # ===[ changelog ]==================================
 %changelog
-* Fri Sep 19 2008 - j.schneider@uib.de
-- created new package
-
-
