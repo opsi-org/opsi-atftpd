@@ -16,7 +16,7 @@ Release:        1.4
 Conflicts:      atftp
 Summary:        advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
 %define tarname opsi-atftp
-Source:         %{tarname}-%{version}.tar.bz2
+Source:         opsi-atftp_0.7.dfsg-1.4.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 # ===[ description ]================================
