@@ -17,6 +17,10 @@ Conflicts:      atftp
 Summary:        advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
 Source:         opsi-atftp_0.7.dfsg-1.4.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+%define tftpboot /tftpboot
+%if 0%{?sles_version}
+%define tftpboot /var/lib/tftpboot
+%endif
 
 %define toplevel_dir %{name}-%{version}
 
@@ -65,7 +69,7 @@ service tftp
     wait            = yes
     user            = root
     server          = %{_sbindir}/in.tftpd
-    server_args     = /tftpboot
+    server_args     = %{tftpboot}
     per_source      = 11
     cps             = 100 2
     flags           = IPv4
