@@ -13,7 +13,8 @@ Group:          Productivity/Networking/Opsi
 AutoReqProv:    on
 Version:        0.7.dfsg
 Release:        1.4
-Conflicts:      atftp
+Conflicts:      atftp tftp-server
+Provides:       tftp-server
 Summary:        advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
 Source:         opsi-atftp_0.7.dfsg-1.4.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
