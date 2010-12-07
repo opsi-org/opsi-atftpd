@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-1.5) lucid; urgency=low
+
+  * opsi-atftpd marked as a replacement for atftpd
+
+ -- Christian Kampka <c.kampka@uib.de>  Mon, 06 Dec 2010 14:09:12 +0100
+
 opsi-atftp (0.7.dfsg-1.4) stable; urgency=low
 
   * provides atftpd

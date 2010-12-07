@@ -21,6 +21,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, netbase (>= 4.08)
 Conflicts: tftpd
 Suggests: logrotate
 Provides: tftpd, atftpd
+Replaces: atftpd
 Description: advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
  Multi-threaded TFTP server implementing all options (option extension and
  multicast) as specified in RFC1350, RFC2090, RFC2347, RFC2348 and RFC2349.
