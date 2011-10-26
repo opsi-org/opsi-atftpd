@@ -2,7 +2,7 @@ Source: opsi-atftp
 Section: net
 Priority: extra
 Maintainer: Jan Schneider <j.schneider@uib.de>
-Build-Depends: libreadline5-dev, debhelper (>= 4.1.16), po-debconf, libwrap-dev | libwrap0-dev, libpcre3-dev
+Build-Depends: libreadline5-dev | libreadline6-dev, debhelper (>= 4.1.16), po-debconf, libwrap-dev | libwrap0-dev, libpcre3-dev
 Standards-Version: 3.7.2
 
 Package: opsi-atftp

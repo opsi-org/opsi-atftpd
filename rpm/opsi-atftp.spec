@@ -12,11 +12,11 @@ License:        GPL v2 or later
 Group:          Productivity/Networking/Opsi
 AutoReqProv:    on
 Version:        0.7.dfsg
-Release:        1.5
+Release:        1.7
 Conflicts:      atftp
 Provides:       tftp-server
 Summary:        advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
-Source:         opsi-atftp_0.7.dfsg-1.5.tar.gz
+Source:         opsi-atftp_0.7.dfsg-1.7.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %define tftpboot /tftpboot
 %if 0%{?sles_version}
