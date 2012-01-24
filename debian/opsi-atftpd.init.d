@@ -2,6 +2,16 @@
 #
 # atftpd - Script to launch atftpd server. Based on Skeleton.
 #
+### BEGIN INIT INFO
+# Provides:          atftpd
+# Required-Start:    $syslog $remote_fs
+# Required-Stop:     $syslog $remote_fs
+# Default-Start:     3 5
+# Default-Stop:      0 1 2 6
+# Short-Description: launch atftpd server
+# Description:       launch Advanced TFTP Server
+### END INIT INFO
+
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/sbin/atftpd

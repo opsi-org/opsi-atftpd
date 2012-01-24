@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-1.8) stable; urgency=low
+
+  * LSB Header added in init-script
+
+ -- Erol Ueluekmen <e.ueluekmen@uib.de>  Tue, 24 Jan 2012 18:01:39 +0100
+
 opsi-atftp (0.7.dfsg-1.7) lucid; urgency=low
 
   * libreadline6-dev added to control file for ubuntu 11.10
