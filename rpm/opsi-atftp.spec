@@ -83,7 +83,11 @@ EOF
 
 # ===[ post ]=======================================
 %post
-
+if [ -e "/etc/init.di/opsi-atftpd" ]; then
+	%if 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora_version} || 0%{?suse_version}
+		sed -i "s/2 3 4 5/2 3 5/g; s/2345/235/g" /etc/init.di/opsi-atftpd
+	%endif
+fi
 # ===[ preun ]======================================
 %preun
 

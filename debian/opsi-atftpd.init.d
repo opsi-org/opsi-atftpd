@@ -6,7 +6,7 @@
 # Provides:          atftpd
 # Required-Start:    $syslog $remote_fs
 # Required-Stop:     $syslog $remote_fs
-# Default-Start:     2 3 5
+# Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: launch atftpd server
 # Description:       launch Advanced TFTP Server
