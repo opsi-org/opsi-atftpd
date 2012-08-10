@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-1.9) testing; urgency=low
+
+  * Replaces univention-tftp package
+
+ -- Erol Ueluekmen <e.ueluekmen@uib.de>  Fri, 10 Aug 2012 11:21:13 +0200
+
 opsi-atftp (0.7.dfsg-1.8) stable; urgency=low
 
   * LSB Header added in init-script
