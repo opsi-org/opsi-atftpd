@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-2) testing; urgency=low
+
+  * fix uncommented entries for tftp-service in inetd.conf
+
+ -- Erol Ueluekmen <e.ueluekmen@uib.de>  Fri, 12 Oct 2012 13:25:16 +0200
+
 opsi-atftp (0.7.dfsg-1.9) testing; urgency=low
 
   * Replaces univention-tftp package

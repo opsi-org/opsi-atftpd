@@ -120,6 +120,8 @@ EOF
 
 # remove any occurance
 update-inetd --remove "tftp.*"
+# remove uncommented occurance
+update-inetd --remove "#tftp.*"
 
 # Make sure atftpd is stoped. Needed for dpkg-reconfigure.
 if [ -e "/etc/init.d/opsi-atftpd" ]; then
