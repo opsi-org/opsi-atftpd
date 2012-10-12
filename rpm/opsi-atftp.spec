@@ -42,9 +42,6 @@ Group: Applications/Internet
 Advanced Trivial File Transfer Protocol client program for requesting
 files using the TFTP protocol.
 
-# ===[ debug_package ]==============================
-%debug_package
-
 # ===[ prep ]=======================================
 %prep
 
