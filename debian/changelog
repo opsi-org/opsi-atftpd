@@ -1,4 +1,4 @@
-opsi-atftp (0.7.dfsg-2) testing; urgency=low
+opsi-atftp (0.7.dfsg-2) stable; urgency=low
 
   * fix uncommented entries for tftp-service in inetd.conf
 
