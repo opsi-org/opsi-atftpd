@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-2.1) testing; urgency=low
+
+  * fix: don't overwrite use_inetd in /etc/default/atftp if exists
+
+ -- Erol Ueluekmen <e.ueluekmen@uib.de>  Wed, 17 Oct 2012 11:11:37 +0200
+
 opsi-atftp (0.7.dfsg-2) stable; urgency=low
 
   * fix uncommented entries for tftp-service in inetd.conf

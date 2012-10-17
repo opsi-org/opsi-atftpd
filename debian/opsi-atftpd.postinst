@@ -23,6 +23,10 @@ db_version 2.0
     else
 	USE_INETD=true
     fi
+    # Reading config from default file, if exists
+    if [ -e /etc/default/atftpd ]; then
+	USE_INETD=$(grep USE_INETD /etc/default/atftpd | cut -d "=" -f2)
+    fi
 
     db_get atftpd/port
     if [ "$RET" ]; then
