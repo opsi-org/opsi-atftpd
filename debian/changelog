@@ -1,3 +1,10 @@
+opsi-atftp (0.7.dfsg-4) stable; urgency=medium
+
+  * debian/compat added
+  * --enable-debug added
+
+ -- Erol Ueluekmen <e.ueluekmen@uib.de>  Sat, 23 Aug 2014 04:26:11 +0200
+
 opsi-atftp (0.7.dfsg-3) stable; urgency=low
 
   * version modified for buildservice
