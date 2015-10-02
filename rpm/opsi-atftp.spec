@@ -18,9 +18,11 @@ Provides:       tftp-server
 Summary:        advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
 Source:         opsi-atftp_0.7.dfsg-4.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-%define tftpboot /tftpboot
-%if 0%{?sles_version}
+%if 0%{?suse_version} == 1315 || 0%{?suse_version} == 1110
+# SLES 12 / 11
 %define tftpboot /var/lib/tftpboot
+%else
+%define tftpboot /tftpboot
 %endif
 
 %define toplevel_dir %{name}-%{version}

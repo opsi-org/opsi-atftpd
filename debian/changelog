@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-5) experimental; urgency=medium
+
+  * Working check for SLES 12.
+
+ -- Niko Wenselowski <n.wenselowski@uib.de>  Fri, 02 Oct 2015 11:38:02 +0200
+
 opsi-atftp (0.7.dfsg-4) stable; urgency=medium
 
   * debian/compat added
