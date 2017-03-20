@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-6) experimental; urgency=medium
+
+  * included -std=gnu89 in CFLAGS for GCC5 compatability on Ubuntu 15.10 and 16.04
+
+ -- Mathias Radtke <m.radtke@uib.de>  Fri, 22 Apr 2016 03:53:56 +0200
+
 opsi-atftp (0.7.dfsg-5) experimental; urgency=medium
 
   * Working check for SLES 12.
