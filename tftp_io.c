@@ -335,13 +335,22 @@ int tftp_get_packet(int sock1, int sock2, int *sock, struct sockaddr_in *sa,
  * Read from file and do netascii conversion if needed
  */
 int tftp_file_read(FILE *fp, char *data_buffer, int data_buffer_size, int block_number,
-                   int convert, int *prev_block_number, int *prev_file_pos, int *temp)
+                   int convert, int *prev_block_number, int *prev_file_pos,
+                   int *block_number_rollover, int *temp)
 {
      int i;
      int c;
      char prevchar = *temp & 0xff;
      char newline = (*temp & 0xff00) >> 8;
      int data_size;
+
+     /* In case of a rollover calculate the real block_number */
+     block_number = *block_number_rollover * 65536 + block_number;
+     if (*prev_block_number > block_number)
+     {
+	  (*block_number_rollover)++;
+	  block_number = *block_number_rollover * 65536;
+     }
 
      if (!convert)
      {
@@ -350,20 +359,21 @@ int tftp_file_read(FILE *fp, char *data_buffer, int data_buffer_size, int block_
 	     order. */
 	  fseek(fp, block_number * data_buffer_size, SEEK_SET);
 	  data_size = fread(data_buffer, 1, data_buffer_size, fp);
-          return data_size;
+	  *prev_block_number = block_number;
+	  return data_size;
      }
      else
      {
 	  /* 
 	   * When converting data, it become impossible to seek in
 	   * the file based on the block number. So we must always
-	   * remeber the position in the file from were to read the
+	   * remember the position in the file from were to read the
 	   * data requested by the client. Client can only request data
 	   * for the same block or the next, but we cannot assume this
 	   * block number will increase at every ACK since it can be
 	   * lost in transmission.
 	   *
-	   * The stategy is to remeber the file position as well as
+	   * The strategy is to remember the file position as well as
 	   * the block number from the current call to this function.
 	   * If the client request a block number different from that
            * we return ERR.
