@@ -345,12 +345,11 @@ int tftp_file_read(FILE *fp, char *data_buffer, int data_buffer_size, int block_
      int data_size;
 
      /* In case of a rollover calculate the real block_number */
-     block_number = *block_number_rollover * 65536 + block_number;
-     if (*prev_block_number > block_number)
+     if (*prev_block_number > 0 && block_number == 0)
      {
 	  (*block_number_rollover)++;
-	  block_number = *block_number_rollover * 65536;
      }
+     block_number = *block_number_rollover * 65536 + block_number;
 
      if (!convert)
      {
