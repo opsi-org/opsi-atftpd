@@ -1,3 +1,15 @@
+opsi-atftp (0.7.dfsg-8) experimental; urgency=medium
+
+  * adapted rollover patch, provided by https://github.com/opsi-org/opsi-atftpd/pull/1
+
+ -- Mathias Radtke <m.radtke@uib.de>  Tue, 05 Dec 2017 13:48:40 +0100
+
+opsi-atftp (0.7.dfsg-7) experimental; urgency=medium
+
+  * provides: opsi-tftpd
+
+ -- Mathias Radtke <m.radtke@uib.de>  Tue, 09 May 2017 14:36:51 +0200
+
 opsi-atftp (0.7.dfsg-6) experimental; urgency=medium
 
   * included -std=gnu89 in CFLAGS for GCC5 compatability on Ubuntu 15.10 and 16.04
