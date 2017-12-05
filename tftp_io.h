@@ -53,7 +53,7 @@ int tftp_get_packet(int sock1, int sock2, int *sock, struct sockaddr_in *sa,
                     struct sockaddr_in *from, struct sockaddr_in *to,
                     int timeout, int *size, char *data);
 int tftp_file_read(FILE *fp, char *buffer, int buffer_size, int block_number, int convert,
-                   int *prev_block_number, int *prev_file_pos, int *temp);
+                   int *prev_block_number, int *prev_file_pos, int *block_number_rollover, int *temp);
 int tftp_file_write(FILE *fp, char *data_buffer, int data_buffer_size, int block_number,
                     int data_size, int convert, int *prev_block_number, int *temp);
 #endif

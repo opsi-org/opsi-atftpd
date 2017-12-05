@@ -431,6 +431,7 @@ int tftpd_send_file(struct thread_data *data)
      struct client_info *client_old = NULL;
      struct tftp_opt options[OPT_NUMBER];
 
+     int block_number_rollover = 0;
      int prev_block_number = 0; /* needed to support netascii convertion */
      int prev_file_pos = 0;
      int temp = 0;
@@ -604,13 +605,20 @@ int tftpd_send_file(struct thread_data *data)
      /* Verify that the file can be sent in 2^16 block of BLKSIZE octets */
      if ((file_stat.st_size / (data->data_buffer_size - 4)) > 65535)
      {
-          tftp_send_error(sockfd, sa, EUNDEF, data->data_buffer, data->data_buffer_size);
-          logger(LOG_NOTICE, "Requested file to big, increase BLKSIZE");
-          if (data->trace)
-               logger(LOG_DEBUG, "sent ERROR <code: %d, msg: %s>", EUNDEF,
-                      tftp_errmsg[EUNDEF]);
-          fclose(fp);
-          return ERR;
+          if (data->tftp_options[OPT_MULTICAST].specified)
+          {
+               tftp_send_error(sockfd, sa, EUNDEF, data->data_buffer, data->data_buffer_size);
+               logger(LOG_NOTICE, "Requested file to big for multicast mode, increase BLKSIZE");
+               if (data->trace)
+                    logger(LOG_DEBUG, "sent ERROR <code: %d, msg: %s>", EUNDEF,
+                           tftp_errmsg[EUNDEF]);
+               fclose(fp);
+               return ERR;
+          }
+          else
+          {
+               logger(LOG_NOTICE, "Requested file may be to big, increase BLKSIZE or hope it works with your TFTP client");
+          }
      }
 
      /* multicast option */
@@ -778,14 +786,18 @@ int tftpd_send_file(struct thread_data *data)
                          free(fifo_buf);
                          fifo_buf = NULL;
                     }
-	       }
+               }
                else
                {
                     data_size = tftp_file_read(fp, tftphdr->th_data, data->data_buffer_size - 4, block_number,
-                                               convert, &prev_block_number, &prev_file_pos, &temp);
+                                               convert, &prev_block_number, &prev_file_pos,
+                                               &block_number_rollover, &temp);
                     /* record the last block number */
                     if (feof(fp))
+                    {
                          last_block = block_number;
+                         block_number_rollover = 0;
+                    }
                }
 
                data_size += 4;  /* need to consider tftp header */
