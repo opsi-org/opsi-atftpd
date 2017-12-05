@@ -4212,7 +4212,7 @@ $as_echo "$ac_cv_safe_to_define___extensions__" >&6; }
 
 
 
-CFLAGS="-g -Wall -D_REENTRANT"
+CFLAGS="-g -Wall -D_REENTRANT -std=gnu89"
 
 if test x$debug = xtrue; then
    CFLAGS="$CFLAGS -O0 -DDEBUG"

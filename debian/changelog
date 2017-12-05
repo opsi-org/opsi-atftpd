@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-9) experimental; urgency=medium
+
+  * had to readd stdc89 standard usage
+
+ -- Mathias Radtke <m.radtke@uib.de>  Tue, 05 Dec 2017 14:20:22 +0100
+
 opsi-atftp (0.7.dfsg-8) experimental; urgency=medium
 
   * adapted rollover patch, provided by https://github.com/opsi-org/opsi-atftpd/pull/1

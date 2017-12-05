@@ -56,7 +56,7 @@ AUTOMAKE = ${SHELL} /home/user/git/opsi-atftpd/missing --run automake-1.8
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -Wall -D_REENTRANT -O2
+CFLAGS = -g -Wall -D_REENTRANT -std=gnu89 -O2
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
