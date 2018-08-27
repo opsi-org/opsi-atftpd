@@ -1,3 +1,15 @@
+opsi-atftp (0.7.dfsg-14) testing; urgency=medium
+
+  * postinst: corrected missspelled filename
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 14:49:18 +0200
+
+opsi-atftp (0.7.dfsg-13) testing; urgency=medium
+
+  * postsinst: corrected typo
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 14:38:17 +0200
+
 opsi-atftp (0.7.dfsg-12) testing; urgency=medium
 
   * UCS: patching TFTPROOT at end of postinst

@@ -147,7 +147,7 @@ fi
 if which ucr >/dev/null 2>/dev/null; then
 	echo "Running on UCS, neet to patch TFTPROOT"
 	sed -i s_/tftpboot_/var/lib/univention-client-boot_g /etc/default/atftpd
-	sed -i s_/tftpboot_/var/lib/univention-client-boot_g /etc/inetd
+	sed -i s_/tftpboot_/var/lib/univention-client-boot_g /etc/inetd.conf
 fi
 
 
