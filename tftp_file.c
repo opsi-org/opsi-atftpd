@@ -618,6 +618,7 @@ int tftp_send_file(struct client_data *data)
      int convert = 0;           /* if true, do netascii convertion */
      char string[MAXLEN];
 
+     int block_number_rollover = 0;
      int prev_block_number = 0; /* needed to support netascii convertion */
      int prev_file_pos = 0;
      int temp = 0;
@@ -717,11 +718,15 @@ int tftp_send_file(struct client_data *data)
                timeout_state = S_SEND_DATA;
 
                data_size = tftp_file_read(fp, tftphdr->th_data, data->data_buffer_size - 4, block_number,
-                                          convert, &prev_block_number, &prev_file_pos, &temp);
+                                          convert, &prev_block_number, &prev_file_pos,
+                                          &block_number_rollover, &temp);
                data_size += 4;  /* need to consider tftp header */
 
                if (feof(fp))
-                    last_block = block_number;
+               {
+                   last_block = block_number;
+                   block_number_rollover = 0;
+               }
                tftp_send_data(sockfd, &sa, block_number + 1,
                               data_size, data->data_buffer);
                data->file_size += data_size;

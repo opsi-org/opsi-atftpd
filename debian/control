@@ -1,7 +1,7 @@
 Source: opsi-atftp
 Section: net
 Priority: extra
-Maintainer: Jan Schneider <j.schneider@uib.de>
+Maintainer: uib GmbH <info@uib.de> 
 Build-Depends: libreadline5-dev | libreadline6-dev, debhelper (>= 4.1.16), po-debconf, libwrap-dev | libwrap0-dev, libpcre3-dev
 Standards-Version: 3.7.2
 
@@ -20,7 +20,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, netbase (>= 4.08)
 Conflicts: tftpd
 Suggests: logrotate
-Provides: tftpd, atftpd
+Provides: opsi-tftpd
 Replaces: atftpd, univention-tftp
 Description: advanced TFTP server - opsi version with pcre, fifo and max-blksize patches
  Multi-threaded TFTP server implementing all options (option extension and
