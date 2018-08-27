@@ -2,8 +2,12 @@
 #
 # TODO:
 #  - error checking on values provided by debconf frontend
-
-BASEDIR=/tftpboot
+if which ucr >/dev/null 2>/dev/null; then
+	echo "Detected UCS System - setting TFTBOOT directory"
+	BASEDIR=/var/lib/univention-client-boot
+else
+	BASEDIR=/tftpboot
+fi
 DAEMON="--daemon"
 
 . /usr/share/debconf/confmodule

@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-10) testing; urgency=medium
+
+  * settting TFTPBOOT directory to UCS default
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 11:47:09 +0200
+
 opsi-atftp (0.7.dfsg-9) experimental; urgency=medium
 
   * had to readd stdc89 standard usage
