@@ -1,3 +1,9 @@
+opsi-atftp (0.7.dfsg-12) testing; urgency=medium
+
+  * UCS: patching TFTPROOT at end of postinst
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 14:27:37 +0200
+
 opsi-atftp (0.7.dfsg-11) testing; urgency=medium
 
   * had to readd stdc89 standard usage
