@@ -118,10 +118,6 @@ EOF
     if [ "$RET" ]; then
         BASEDIR="$RET"
     fi
-	if which ucr >/dev/null 2>/dev/null; then
-		echo "Detected UCS System - setting TFTBOOT directory"
-		BASEDIR=/var/lib/univention-client-boot
-	fi
 #fi
 
 # remove any occurance
@@ -146,6 +142,14 @@ $NOMCAST $MCASTPORT $MCASTADDR $MCASTTTL $MAXTHREAD $VERBOSITY $LOGFILE $BASEDIR
     echo "OPTIONS=\"$DAEMON $TFTPD_PORT $TFTPD_TIMEOUT $RETRY_TIMEOUT $NOTIMEOUT $NOTSIZE $NOBLKSIZE $NOMCAST \
 $MCASTPORT $MCASTADDR $MCASTTTL $MAXTHREAD $VERBOSITY $LOGFILE $BASEDIR\"" >> /etc/default/atftpd
 fi
+
+#Patch files if UCS System detected
+if which ucr >/dev/null 2>/dev/null; then
+	echo "Running on UCS, neet to patch TFTPROOT
+	sed -i s_/tftpboot_/var/lib/univention-client-boot_g /etc/default/atftpd
+	sed -i s_/tftpboot_/var/lib/univention-client-boot_g /etc/inetd
+fi
+
 
 #DEBHELPER#
 
