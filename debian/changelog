@@ -1,3 +1,51 @@
+opsi-atftp (0.7.dfsg-14) testing; urgency=medium
+
+  * postinst: corrected missspelled filename
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 14:49:18 +0200
+
+opsi-atftp (0.7.dfsg-13) testing; urgency=medium
+
+  * postsinst: corrected typo
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 14:38:17 +0200
+
+opsi-atftp (0.7.dfsg-12) testing; urgency=medium
+
+  * UCS: patching TFTPROOT at end of postinst
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 14:27:37 +0200
+
+opsi-atftp (0.7.dfsg-11) testing; urgency=medium
+
+  * had to readd stdc89 standard usage
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 12:05:08 +0200
+
+opsi-atftp (0.7.dfsg-10) testing; urgency=medium
+
+  * settting TFTPBOOT directory to UCS default
+
+ -- Mathias Radtke <m.radtke@uib.de>  Mon, 27 Aug 2018 11:47:09 +0200
+
+opsi-atftp (0.7.dfsg-9) experimental; urgency=medium
+
+  * had to readd stdc89 standard usage
+
+ -- Mathias Radtke <m.radtke@uib.de>  Tue, 05 Dec 2017 14:20:22 +0100
+
+opsi-atftp (0.7.dfsg-8) experimental; urgency=medium
+
+  * adapted rollover patch, provided by https://github.com/opsi-org/opsi-atftpd/pull/1
+
+ -- Mathias Radtke <m.radtke@uib.de>  Tue, 05 Dec 2017 13:48:40 +0100
+
+opsi-atftp (0.7.dfsg-7) experimental; urgency=medium
+
+  * provides: opsi-tftpd
+
+ -- Mathias Radtke <m.radtke@uib.de>  Tue, 09 May 2017 14:36:51 +0200
+
 opsi-atftp (0.7.dfsg-6) experimental; urgency=medium
 
   * included -std=gnu89 in CFLAGS for GCC5 compatability on Ubuntu 15.10 and 16.04
