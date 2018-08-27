@@ -4209,9 +4209,6 @@ $as_echo "$ac_cv_safe_to_define___extensions__" >&6; }
 
   $as_echo "#define _TANDEM_SOURCE 1" >>confdefs.h
 
-
-
-
 CFLAGS="-g -Wall -D_REENTRANT -std=gnu89"
 
 if test x$debug = xtrue; then
